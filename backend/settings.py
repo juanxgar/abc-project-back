@@ -109,11 +109,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'abc',
-        'USER': 'abc',
-        'PASSWORD': 'abc',
-        'HOST': os.getenv("DATABASE_HOST"),
-        'PORT': '',
+        'NAME': 'd4kqi2b53j4sm5',
+        'USER': 'dqjxnycyothclw',
+        'PASSWORD': 'd1bb0d2e32ed947ae4ce881ff80611050a859305557b506004f0b5704fd1b072',
+        'HOST': 'ec2-52-207-15-147.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 # Password validation
