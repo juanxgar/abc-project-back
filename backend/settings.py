@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9#uet!^qykb!(a1lid6lj!+^moot^kqt2a*mth*3@q^4^*g4)i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -66,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
     # 'login.middleware.loggedMiddleware.LoggedMiddleware',
     # 'users.middleware.userMiddleware.UserMiddleware'
 ]
@@ -109,11 +110,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'abc',
-        'USER': 'abc',
-        'PASSWORD': 'abc',
-        'HOST': os.getenv("DATABASE_HOST"),
-        'PORT': '',
+        'NAME': 'd4kqi2b53j4sm5',
+        'USER': 'dqjxnycyothclw',
+        'PASSWORD': 'd1bb0d2e32ed947ae4ce881ff80611050a859305557b506004f0b5704fd1b072',
+        'HOST': 'ec2-52-207-15-147.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 # Password validation
@@ -160,7 +161,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_TMP = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
+
+
+
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
@@ -170,3 +183,5 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': 'IBS2oAuC-boM2Fgtl2ab8fdv5bU',
     'SECURE': True,
 }
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

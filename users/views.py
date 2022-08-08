@@ -64,7 +64,7 @@ class UserViewSet(viewsets.ModelViewSet):
         except:
             return Response("Error", status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-    @action(detail=True, methods=['get'], url_path='enable')
+    @action(detail=True, methods=['put'], url_path='enable')
     def enable(this, request, pk):
         """
             Switch user state and save it on DB.
