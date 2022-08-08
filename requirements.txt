@@ -11,3 +11,9 @@ pymemcache
 opencv-python-headless
 numpy
 gunicorn
+django-heroku
+whitenoise
+dj-database-url
+pytz
+asgiref
+sqlparse

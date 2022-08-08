@@ -170,3 +170,7 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': 'IBS2oAuC-boM2Fgtl2ab8fdv5bU',
     'SECURE': True,
 }
+
+# Configure Django App for Heroku.
+import django_heroku
+django_heroku.settings(locals())
